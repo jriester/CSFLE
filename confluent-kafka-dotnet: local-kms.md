@@ -1,35 +1,36 @@
-Create your encryption key using the openssl command:
-
+## Create your encryption key using the openssl command:
+```
  openssl rand -base64 16
- 
+ ```
 
- Example output:
- 
+ ### Example output:
+ ```
  MLA4pQssdLl494kT6FBboQ==
- 
+ ```
 
-Create a topic to produce your encrypted data to, we'll stick with topic defaults for this demo:
-
+## Create a topic to produce your encrypted data to, we'll stick with topic defaults for this demo:
+```
  kafka-topics --bootstrap-server <hostname>:<port> --create --topic jriester-csfle-local --command-config /path/to/security/file
- 
+ ```
 
-Export the value to a local environment variable:
+## Export the value to a local environment variable:
 
- export LOCAL_SECRET=MLA4pQssdLl494kT6FBboQ==
- 
+ ```
+export LOCAL_SECRET=MLA4pQssdLl494kT6FBboQ==
+``` 
 
- 3.a. Ensure this echoes correctly:
-
+### Ensure this echoes correctly:
+```
  echo $LOCAL_SECRET
- 
+ ```
 
- Example output:
- 
+### Example output:
+ ```
  MLA4pQssdLl494kT6FBboQ==
- 
+ ```
 
-Register the schema:
-
+## Register the schema:
+```
  curl -s -u <Schema Registry API Key>:<Schema Registry API Secret> -X POST <Schema Registry endpoint>/subjects/jriester-csfle-local-value/versions \
    --header 'content-type: application/octet-stream' \
    --data '{
@@ -42,10 +43,10 @@ Register the schema:
              }
            }
      }'
- 
+ ```
 
- Example response:
-
+ ### Example response:
+```
  {
    "id": 101010811,
    "version": 16,
@@ -57,10 +58,10 @@ Register the schema:
    },
    "schema": "{\"type\":\"record\",\"name\":\"PersonalData\",\"namespace\":\"Confluent.Kafka.Examples.AvroSpecificEncryptionLocal\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"birthday\",\"type\":\"string\",\"confluent:tags\":[\"PII\"]},{\"name\":\"timestamp\",\"type\":[\"string\",\"null\"]}]}"
  }
- 
+ ```
 
-Register the rule:
-
+## Register the rule:
+```
  curl -X POST '<Schema Registry endpoint>/subjects/jriester-csfle-local-value/versions' -u <Schema Registry API Key>:<Schema Registry API Secret> -H 'Content-Type: application/vnd.schemaregistry.v1+json' \
    --data '{
          "ruleSet": {
@@ -81,10 +82,10 @@ Register the rule:
          ]
        }
      }'
+```
+ ### Example response:
 
- Example response:
-
- ```json
+```
  {
    "id": 101010812,
    "version": 17,
@@ -114,14 +115,14 @@ Register the rule:
    },
       "schema": "{\"type\":\"record\",\"name\":\"PersonalData\",\"namespace\":\"Confluent.Kafka.Examples.AvroSpecificEncryptionLocal\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"birthday\",\"type\":\"string\",\"confluent:tags\":[\"PII\"]},{\"name\":\"timestamp\",\"type\":[\"string\",\"null\"]}]}"
     }
-
-    Check rule exists:
-
+```
+## Check rule exists:
+```
  curl -s '<Schema Registry endpoint>/subjects/jriester-csfle-local-value/versions/latest' -u <Schema Registry API Key>:<Schema Registry API Secret> | jq
- 
+```
 
- Example response:
-
+ ### Example response:
+```
  {
    "subject": "jriester-csfle-local-value",
    "version": 15,
@@ -154,17 +155,21 @@ Register the rule:
      ]
    }
  }
- 
+ ```
 
-Run the avrogen tool to create a C# class based on the input schema PersonalData.avsc:
+## Run the avrogen tool to create a C# class based on the input schema PersonalData.avsc:
+```
+ avrogen -s PersonalData.avsc . --namespace "confluent.io.examples.serialization.avro:Confluent.Kafka.Examples.AvroSpecificEncryptionLocal"
+ ```
 
- /Users/jriester/.dotnet/tools/avrogen -s PersonalData.avsc . --namespace "confluent.io.examples.serialization.avro:Confluent.Kafka.Examples.AvroSpecificEncryptionLocal"
- 
+## Run code
+```
+dotnet build
+dotnet run
+```
 
-Run code
-
-Check CCloud UI:
-
+## Check CCloud UI:
+```
  {
    "id": "my id",
    "name": "james",
@@ -173,9 +178,4 @@ Check CCloud UI:
      "string": "500"
    }
  }
- 
-
-
-
-
-
+ ```
