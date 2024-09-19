@@ -1,0 +1,11 @@
+{
+  "fields": [
+    {
+      "name": "my_field14441123",
+      "type": "int"
+    }
+  ],
+  "name": "sampleRecord",
+  "namespace": "examples",
+  "type": "record"
+}

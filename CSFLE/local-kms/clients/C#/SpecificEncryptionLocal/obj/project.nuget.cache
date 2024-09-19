@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OkrwPrOlfq0ZMIoB1BTReIyJcZHlaBbjCab5HDY1KzODdaM25pJ7hseNY5PUR4p0nErfpb0MfUiMxmL1F2ea5g==",
+  "success": true,
+  "projectFilePath": "/Users/jriester/github/CSFLE/local-kms/clients/C#/SpecificEncryptionLocal/AvroSpecificEncryption.csproj",
+  "expectedPackageFiles": [
+    "/Users/jriester/.nuget/packages/microsoft.netcore.app.ref/6.0.23/microsoft.netcore.app.ref.6.0.23.nupkg.sha512",
+    "/Users/jriester/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.23/microsoft.aspnetcore.app.ref.6.0.23.nupkg.sha512",
+    "/Users/jriester/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.23/microsoft.netcore.app.host.osx-arm64.6.0.23.nupkg.sha512"
+  ],
+  "logs": []
+}
