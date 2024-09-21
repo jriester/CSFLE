@@ -1,4 +1,4 @@
-## Initial setup taken from Patrick Neff (Confluent)
+## Initial setup adopted from Patrick Neff (Confluent)
 https://github.com/pneff93/csfle
 
 ## Create your encryption key using the openssl command:
