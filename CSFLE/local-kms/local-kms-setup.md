@@ -13,7 +13,9 @@ https://github.com/pneff93/csfle
 
 ## Create a topic to produce your encrypted data to, we'll stick with topic defaults for this demo:
 ```
- kafka-topics --bootstrap-server <hostname>:<port> --create --topic jriester-csfle-local --command-config /path/to/security/file
+ kafka-topics --bootstrap-server <hostname>:<port> \
+--create --topic jriester-csfle-local \
+--command-config /path/to/security/file
  ```
 
 ## Export the value to a local environment variable:
@@ -156,29 +158,6 @@ export LOCAL_SECRET=MLA4pQssdLl494kT6FBboQ==
          "disabled": false
        }
      ]
-   }
- }
- ```
-
-## Run the avrogen tool to create a C# class based on the input schema PersonalData.avsc:
-```
- avrogen -s PersonalData.avsc . --namespace "confluent.io.examples.serialization.avro:Confluent.Kafka.Examples.AvroSpecificEncryptionLocal"
- ```
-
-## Run code
-```
-dotnet build
-dotnet run
-```
-
-## Check CCloud UI:
-```
- {
-   "id": "my id",
-   "name": "james",
-   "birthday": "+yU+jbNfxXj07AGR7BOIW4d26s1q4+jJ5DkbIXkux91Nr2YDxj4=",
-   "timestamp": {
-     "string": "500"
    }
  }
  ```
