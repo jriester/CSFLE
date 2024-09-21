@@ -1,3 +1,6 @@
+## Initial setup adopted from Patrick Neff (Confluent)
+https://github.com/pneff93/csfle
+
 ## In AWS, create a key
 
 ![image](https://github.com/user-attachments/assets/82c858b6-12a2-4a35-b7f4-bd915dc8bb4d)
