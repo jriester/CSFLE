@@ -7,14 +7,15 @@ https://github.com/pneff93/csfle
 
 1. **Key Type**: Symmetric
 2. **Key Usage**: Encrypt and decrypt
-3. Leave Advanced Options at default values
-4. Click **Next**
-5. Define an alias, for my example I chose `james_csfle`
-6. Click **Next**
-7. From the Key administrators page, select an administrator for this key who will serve as it's 'owner'
+3. Leave Advanced Options at default values if you'd like a Single-Region key
+      1. If you'd like a Multi-Region key, click the Advanced Options and select Multi-Region key from the **Regionality** section
+5. Click **Next**
+6. Define an alias, for my example I chose `james_csfle`
+7. Click **Next**
+8. From the Key administrators page, select an administrator for this key who will serve as it's 'owner'
    1. This is optilonal, feel free to skip
-8. Click **Next**
-9. From Key users, select the user principal which you'll be utilizing for your producer / consumer
+9. Click **Next**
+10. From Key users, select the user principal which you'll be utilizing for your producer / consumer
    1. This is also optional, feel free to skip
 11. Click **Next**
 12. Review the configurations and click **Finish** when done
