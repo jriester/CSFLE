@@ -33,7 +33,8 @@ https://github.com/pneff93/csfle
 ## Register the schema:
 
 ```
-curl -s -u <Schema Registry API Key>:<Schema Registry API Secret> -X POST <Schema Registry bootstrap>/subjects/jriester-csfle-demo-value/versions \
+curl -s -u <Schema Registry API Key>:<Schema Registry API Secret> -X POST \
+<Schema Registry bootstrap>/subjects/jriester-csfle-demo-value/versions \
   --header 'content-type: application/octet-stream' \
   --data '{
             "schemaType": "AVRO",
@@ -65,7 +66,9 @@ curl -s -u <Schema Registry API Key>:<Schema Registry API Secret> -X POST <Schem
 ## Register the ruleset
 
 ```
-curl -X POST  '`<Schema Registry bootstrap>`/subjects/jriester-csfle-demo-value/versions' -u `<Schema Registry API Key>`:`<Schema Registry API Secret>` -H 'Content-Type: application/vnd.schemaregistry.v1+json'
+curl -X POST  '`<Schema Registry bootstrap>`/subjects/jriester-csfle-demo-value/versions' \
+-u `<Schema Registry API Key>`:`<Schema Registry API Secret>` \
+-H 'Content-Type: application/vnd.schemaregistry.v1+json'
   --data '{
         "ruleSet": {
         "domainRules": [
