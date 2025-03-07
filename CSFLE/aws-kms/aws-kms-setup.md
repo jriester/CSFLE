@@ -129,7 +129,8 @@ curl -X POST  '`<Schema Registry bootstrap>`/subjects/jriester-csfle-demo-value/
 ## Check rule exists
 
 ```
-curl -s 'https://`<Schema Registry bootstrap>`/subjects/jriester-csfle-demo-value/versions/latest' -u `<Schema Registry API Key>`:`<Schema Registry API Secret>` | jq
+curl -s 'https://`<Schema Registry bootstrap>`/subjects/jriester-csfle-demo-value/versions/latest' \
+-u `<Schema Registry API Key>`:`<Schema Registry API Secret>` | jq
 ```
 
 ### Example response
