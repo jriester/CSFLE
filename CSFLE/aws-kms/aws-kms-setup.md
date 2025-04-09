@@ -13,10 +13,10 @@ https://github.com/pneff93/csfle
 6. Define an alias, for my example I chose `james_csfle`
 7. Click **Next**
 8. From the Key administrators page, select an administrator for this key who will serve as it's 'owner'
-   1. This is optilonal, feel free to skip
+    1. This is optilonal, feel free to skip
 9. Click **Next**
 10. From Key users, select the user principal which you'll be utilizing for your producer / consumer
-   1. This is also optional, feel free to skip
+    1. This is also optional, feel free to skip
 11. Click **Next**
 12. Review the configurations and click **Finish** when done
 
