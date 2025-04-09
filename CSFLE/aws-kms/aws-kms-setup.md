@@ -24,6 +24,10 @@ https://github.com/pneff93/csfle
 
 ![image](https://github.com/user-attachments/assets/893b75e9-64e6-4824-b4c5-7e0706cbb397)
 
+1. Navigate to IAM in AWS
+2. Click on `Users` from the left-side menu and select the user you'd like to use
+3. In the Users details you'll see two areas for an access key (See picture for reference)
+4. Click `Access key 1` if you have not defined an access key, otherwise click `Access key 2`
 1. Click **Application running outside AWS**
    1. This isn't important, pick any option you want
 2. Click **Next**
